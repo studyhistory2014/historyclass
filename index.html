@@ -1,0 +1,1109 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>산업혁명 증언 수사국 | WHY스토리</title>
+
+  <meta
+    name="description"
+    content="산업혁명 당시 인물들의 증언을 분석하고 역사적 판단을 내리는 역사 탐구 학습 앱"
+  >
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ====================================
+       전체 앱
+  ===================================== -->
+  <div id="app">
+
+    <!-- 상단 헤더 -->
+    <header class="app-header">
+      <div class="header-inner">
+
+        <div class="brand">
+          <span class="brand-icon">⌕</span>
+
+          <div>
+            <p class="brand-subtitle">WHY STORY · HISTORY LAB</p>
+            <h1>산업혁명 증언 수사국</h1>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <span id="student-info" hidden></span>
+
+          <button
+            id="home-btn"
+            class="btn btn-outline"
+            type="button"
+            hidden
+          >
+            처음으로
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+
+    <!-- ====================================
+         시작 화면
+    ===================================== -->
+    <main id="start-screen" class="screen">
+
+      <section class="hero">
+
+        <div class="hero-badge">
+          HISTORY INVESTIGATION PROJECT
+        </div>
+
+        <h2>
+          산업혁명,<br>
+          <span>누구를 위한 발전이었을까?</span>
+        </h2>
+
+        <p class="hero-description">
+          19세기 영국에서 산업혁명이 시작되었습니다.
+          기계와 공장은 세상을 빠르게 변화시켰지만,
+          모든 사람이 그 변화를 똑같이 경험한 것은 아닙니다.
+        </p>
+
+        <div class="mission-intro">
+          <h3>당신에게 주어진 임무</h3>
+
+          <p>
+            당신은 산업혁명의 진실을 조사하는 역사 탐정입니다.
+            당시 사람들이 남긴 증언을 분석하고,
+            서로 다른 증거를 비교하여
+            자신만의 역사적 판단을 내려야 합니다.
+          </p>
+        </div>
+
+      </section>
+
+
+      <!-- 학생 입장 -->
+      <section class="entry-card">
+
+        <h3>역사 탐정단 입장</h3>
+
+        <p class="section-description">
+          학급에서 안내받은 정보를 입력하세요.
+        </p>
+
+        <form id="login-form">
+
+          <div class="form-group">
+            <label for="student-number">
+              학생 번호
+            </label>
+
+            <input
+              type="text"
+              id="student-number"
+              placeholder="예: 20101"
+              maxlength="12"
+              autocomplete="off"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="group-select">
+              소속 모둠
+            </label>
+
+            <select id="group-select" required>
+              <option value="">
+                모둠을 선택하세요
+              </option>
+              <option value="1">1모둠</option>
+              <option value="2">2모둠</option>
+              <option value="3">3모둠</option>
+              <option value="4">4모둠</option>
+              <option value="5">5모둠</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+          >
+            수사 시작하기 →
+          </button>
+
+        </form>
+
+      </section>
+
+
+      <!-- 교사용 입장 -->
+      <div class="teacher-entry">
+        <button
+          id="teacher-login-btn"
+          class="text-button"
+          type="button"
+        >
+          교사용 대시보드
+        </button>
+      </div>
+
+    </main>
+
+
+    <!-- ====================================
+         학생 학습 화면
+    ===================================== -->
+    <main id="student-screen" class="screen" hidden>
+
+      <!-- 학습 진행 단계 -->
+      <nav
+        class="progress-nav"
+        aria-label="학습 진행 단계"
+      >
+
+        <div class="progress-step active" data-step="1">
+          <span class="step-number">01</span>
+          <span>첫 판단</span>
+        </div>
+
+        <div class="progress-step" data-step="2">
+          <span class="step-number">02</span>
+          <span>증언 분석</span>
+        </div>
+
+        <div class="progress-step" data-step="3">
+          <span class="step-number">03</span>
+          <span>교차 검증</span>
+        </div>
+
+        <div class="progress-step" data-step="4">
+          <span class="step-number">04</span>
+          <span>새로운 증거</span>
+        </div>
+
+        <div class="progress-step" data-step="5">
+          <span class="step-number">05</span>
+          <span>최종 판결</span>
+        </div>
+
+      </nav>
+
+
+      <!-- ==================================
+           MISSION 1 : 첫 판단
+      =================================== -->
+      <section
+        id="mission-1"
+        class="mission-section"
+      >
+
+        <div class="mission-header">
+          <span class="mission-label">MISSION 01</span>
+          <h2>첫 번째 판단</h2>
+
+          <p>
+            증언을 조사하기 전,
+            지금 알고 있는 내용을 바탕으로
+            자신의 생각을 선택하세요.
+          </p>
+        </div>
+
+        <div class="content-card">
+
+          <h3>
+            산업혁명은 사람들의 삶을
+            더 좋게 만들었을까?
+          </h3>
+
+          <p class="hint">
+            정답은 없습니다.
+            현재 자신의 생각을 선택하세요.
+          </p>
+
+          <fieldset class="opinion-options">
+
+            <legend class="sr-only">
+              산업혁명에 대한 첫 판단
+            </legend>
+
+            <label class="option-card">
+              <input
+                type="radio"
+                name="first-opinion"
+                value="positive"
+              >
+              <span>
+                긍정적인 변화가 더 컸다
+              </span>
+            </label>
+
+            <label class="option-card">
+              <input
+                type="radio"
+                name="first-opinion"
+                value="neutral"
+              >
+              <span>
+                아직 판단하기 어렵다
+              </span>
+            </label>
+
+            <label class="option-card">
+              <input
+                type="radio"
+                name="first-opinion"
+                value="negative"
+              >
+              <span>
+                부정적인 변화가 더 컸다
+              </span>
+            </label>
+
+          </fieldset>
+
+          <div class="form-group">
+            <label for="first-reason">
+              그렇게 생각한 이유는?
+            </label>
+
+            <textarea
+              id="first-reason"
+              rows="3"
+              placeholder="현재 알고 있는 사실이나 생각을 간단히 적어보세요."
+            ></textarea>
+          </div>
+
+          <button
+            id="submit-first-opinion"
+            class="btn btn-primary btn-full"
+            type="button"
+          >
+            첫 판단 기록하기 →
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           MISSION 2 : 증언 분석
+      =================================== -->
+      <section
+        id="mission-2"
+        class="mission-section"
+        hidden
+      >
+
+        <div class="mission-header">
+          <span class="mission-label">MISSION 02</span>
+          <h2>역사적 증언을 분석하라!</h2>
+
+          <p>
+            우리 모둠에 배정된 역사적 인물의
+            증언을 읽고 역사적 근거를 찾아보세요.
+          </p>
+        </div>
+
+        <!-- 사료 카드 -->
+        <article class="source-card">
+
+          <div class="source-top">
+
+            <span
+              id="source-code"
+              class="source-badge"
+            >
+              증언 파일
+            </span>
+
+            <span id="source-year"></span>
+
+          </div>
+
+          <div class="source-person">
+
+            <div
+              id="source-avatar"
+              class="person-avatar"
+              aria-hidden="true"
+            >
+              📜
+            </div>
+
+            <div>
+              <h3 id="source-name">
+                역사적 인물
+              </h3>
+
+              <p id="source-role">
+                인물 정보
+              </p>
+            </div>
+
+          </div>
+
+          <div class="source-document">
+            <p class="document-label">
+              HISTORICAL SOURCE
+            </p>
+
+            <blockquote id="source-text">
+              모둠별 사료가 이곳에 표시됩니다.
+            </blockquote>
+          </div>
+
+          <p
+            id="source-reference"
+            class="source-reference"
+          ></p>
+
+        </article>
+
+
+        <!-- 개인 분석 -->
+        <div class="content-card">
+
+          <h3>개인 증언 분석 기록</h3>
+
+          <div class="form-group">
+            <label for="analysis-fact">
+              Q1. 증언에서 확인할 수 있는
+              역사적 사실은 무엇인가요?
+            </label>
+
+            <textarea
+              id="analysis-fact"
+              rows="3"
+              placeholder="사료 속 내용을 근거로 작성하세요."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="analysis-meaning">
+              Q2. 이 증언은 산업혁명의
+              어떤 모습을 보여주나요?
+            </label>
+
+            <textarea
+              id="analysis-meaning"
+              rows="3"
+              placeholder="이 인물이 경험하거나 주장한 변화의 의미를 생각해 보세요."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="analysis-limit">
+              Q3. 이 증언만으로는
+              알기 어려운 점은 무엇인가요?
+            </label>
+
+            <textarea
+              id="analysis-limit"
+              rows="3"
+              placeholder="다른 입장의 증언이 필요한 이유를 생각해 보세요."
+            ></textarea>
+          </div>
+
+          <button
+            id="save-analysis"
+            class="btn btn-primary btn-full"
+            type="button"
+          >
+            개인 분석 저장하기
+          </button>
+
+        </div>
+
+
+        <!-- 모둠 협의 -->
+        <div class="content-card">
+
+          <div class="card-heading">
+            <span class="mini-badge">GROUP MISSION</span>
+            <h3>모둠의 대표 증거 만들기</h3>
+          </div>
+
+          <p class="hint">
+            각자의 분석을 비교하고,
+            모둠을 대표할 증거와 해석을 정하세요.
+            모둠 대표 한 명이 제출합니다.
+          </p>
+
+          <div class="form-group">
+            <label for="group-evidence">
+              우리 모둠이 찾은 핵심 증거
+            </label>
+
+            <textarea
+              id="group-evidence"
+              rows="3"
+              placeholder="사료에서 확인한 중요한 사실을 적으세요."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="group-interpretation">
+              우리 모둠의 해석
+            </label>
+
+            <textarea
+              id="group-interpretation"
+              rows="3"
+              placeholder="이 증거가 산업혁명에 관해 무엇을 보여주는지 설명하세요."
+            ></textarea>
+          </div>
+
+          <button
+            id="submit-group-evidence"
+            class="btn btn-secondary btn-full"
+            type="button"
+          >
+            모둠 대표 증거 제출하기
+          </button>
+
+        </div>
+
+        <button
+          id="go-mission-3"
+          class="btn btn-primary btn-full next-button"
+          type="button"
+        >
+          다른 모둠의 증언 조사하기 →
+        </button>
+
+      </section>
+
+
+      <!-- ==================================
+           MISSION 3 : 교차 검증
+      =================================== -->
+      <section
+        id="mission-3"
+        class="mission-section"
+        hidden
+      >
+
+        <div class="mission-header">
+          <span class="mission-label">MISSION 03</span>
+          <h2>증거를 교차 검증하라!</h2>
+
+          <p>
+            다른 네 모둠이 분석한 증언을
+            확인하고, 우리 모둠의 증언과
+            비교해 보세요.
+          </p>
+        </div>
+
+        <div class="mission-alert">
+          <strong>탐정의 임무</strong>
+
+          <p>
+            다른 모둠의 증거를 읽고
+            최소 한 가지 검증 의견을 남기세요.
+            단순한 찬반 표현보다
+            새로운 질문이나 근거를 제시하는 것이 중요합니다.
+          </p>
+        </div>
+
+        <!-- 다른 모둠의 증거 카드 생성 영역 -->
+        <div
+          id="evidence-board"
+          class="evidence-grid"
+          aria-live="polite"
+        >
+          <!-- script.js에서 증거 카드 생성 -->
+        </div>
+
+        <!-- 검증 의견 작성 -->
+        <div class="content-card">
+
+          <h3>증거 검증 기록</h3>
+
+          <div class="form-group">
+            <label for="review-group">
+              검증할 모둠
+            </label>
+
+            <select id="review-group">
+              <option value="">
+                모둠을 선택하세요
+              </option>
+            </select>
+          </div>
+
+          <fieldset class="review-options">
+
+            <legend>
+              어떤 방식으로 검증할까요?
+            </legend>
+
+            <label>
+              <input
+                type="radio"
+                name="review-type"
+                value="question"
+              >
+              새로운 질문 제시하기
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="review-type"
+                value="support"
+              >
+              추가 근거 제시하기
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="review-type"
+                value="limit"
+              >
+              해석의 한계 지적하기
+            </label>
+
+          </fieldset>
+
+          <div class="form-group">
+            <label for="review-comment">
+              나의 검증 의견
+            </label>
+
+            <textarea
+              id="review-comment"
+              rows="4"
+              placeholder="사료의 내용과 근거를 활용해 자신의 의견을 작성하세요."
+            ></textarea>
+          </div>
+
+          <button
+            id="submit-review"
+            class="btn btn-secondary btn-full"
+            type="button"
+          >
+            검증 의견 제출하기
+          </button>
+
+        </div>
+
+        <div class="content-card">
+
+          <h3>내가 수집한 검증 기록</h3>
+
+          <div id="my-review-list" class="review-list">
+            <p class="empty-message">
+              아직 제출한 검증 의견이 없습니다.
+            </p>
+          </div>
+
+        </div>
+
+        <button
+          id="go-mission-4"
+          class="btn btn-primary btn-full next-button"
+          type="button"
+        >
+          새로운 증거 확인하기 →
+        </button>
+
+      </section>
+
+
+      <!-- ==================================
+           MISSION 4 : 새로운 증거
+      =================================== -->
+      <section
+        id="mission-4"
+        class="mission-section"
+        hidden
+      >
+
+        <div class="mission-header">
+          <span class="mission-label">MISSION 04</span>
+          <h2>새로운 증거가 발견되었다!</h2>
+
+          <p>
+            지금까지의 판단에 영향을 줄 수 있는
+            새로운 역사적 자료가 도착했습니다.
+          </p>
+        </div>
+
+        <div class="secret-card">
+
+          <div class="secret-icon">🔒</div>
+
+          <h3>비밀 증거 X</h3>
+
+          <p>
+            교사가 새로운 증거를 공개하면
+            내용을 확인할 수 있습니다.
+          </p>
+
+          <div
+            id="secret-locked"
+            class="locked-message"
+          >
+            아직 공개되지 않은 증거입니다.
+          </div>
+
+          <div
+            id="secret-content"
+            class="secret-content"
+            hidden
+          >
+            <span class="mini-badge">
+              NEW EVIDENCE
+            </span>
+
+            <h3 id="secret-title"></h3>
+
+            <p id="secret-text"></p>
+
+            <p
+              id="secret-reference"
+              class="source-reference"
+            ></p>
+          </div>
+
+        </div>
+
+        <div class="content-card">
+
+          <h3>새로운 증거를 해석하라!</h3>
+
+          <div class="form-group">
+            <label for="secret-answer">
+              새롭게 알게 된 사실은 무엇이며,
+              산업혁명에 대한 나의 생각에
+              어떤 영향을 주었나요?
+            </label>
+
+            <textarea
+              id="secret-answer"
+              rows="5"
+              placeholder="기존에 조사한 증언과 비교해 생각해 보세요."
+            ></textarea>
+          </div>
+
+          <button
+            id="save-secret-answer"
+            class="btn btn-secondary btn-full"
+            type="button"
+          >
+            새로운 증거 분석 저장하기
+          </button>
+
+        </div>
+
+        <button
+          id="go-mission-5"
+          class="btn btn-primary btn-full next-button"
+          type="button"
+        >
+          최종 판결 내리기 →
+        </button>
+
+      </section>
+
+
+      <!-- ==================================
+           MISSION 5 : 최종 판결
+      =================================== -->
+      <section
+        id="mission-5"
+        class="mission-section"
+        hidden
+      >
+
+        <div class="mission-header">
+          <span class="mission-label">FINAL MISSION</span>
+          <h2>나의 역사적 판결</h2>
+
+          <p>
+            지금까지 조사한 여러 증언을 종합하여
+            산업혁명에 대한 최종 판단을 내려보세요.
+          </p>
+        </div>
+
+        <div class="content-card">
+
+          <h3>
+            산업혁명은 사람들의 삶을
+            더 좋게 만들었을까?
+          </h3>
+
+          <fieldset class="opinion-options">
+
+            <legend class="sr-only">
+              산업혁명에 대한 최종 판단
+            </legend>
+
+            <label class="option-card">
+              <input
+                type="radio"
+                name="final-opinion"
+                value="positive"
+              >
+              <span>
+                긍정적인 변화가 더 컸다
+              </span>
+            </label>
+
+            <label class="option-card">
+              <input
+                type="radio"
+                name="final-opinion"
+                value="neutral"
+              >
+              <span>
+                긍정과 부정을 비교해도
+                아직 판단하기 어렵다
+              </span>
+            </label>
+
+            <label class="option-card">
+              <input
+                type="radio"
+                name="final-opinion"
+                value="negative"
+              >
+              <span>
+                부정적인 변화가 더 컸다
+              </span>
+            </label>
+
+          </fieldset>
+
+          <div class="form-group">
+            <label for="positive-evidence">
+              ① 산업혁명의 긍정적 변화와 근거
+            </label>
+
+            <textarea
+              id="positive-evidence"
+              rows="3"
+              placeholder="구체적인 역사적 사실이나 사료를 활용하세요."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="negative-evidence">
+              ② 산업혁명의 부정적 변화와 근거
+            </label>
+
+            <textarea
+              id="negative-evidence"
+              rows="3"
+              placeholder="구체적인 역사적 사실이나 사료를 활용하세요."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="important-source">
+              ③ 내 판단에 가장 큰 영향을 준 증언
+            </label>
+
+            <textarea
+              id="important-source"
+              rows="3"
+              placeholder="어떤 인물의 증언인지, 왜 중요하게 생각하는지 작성하세요."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="final-judgment">
+              ④ 나의 최종 평가
+            </label>
+
+            <textarea
+              id="final-judgment"
+              rows="5"
+              placeholder="긍정적·부정적 영향을 모두 고려하여 자신의 역사적 평가를 작성하세요."
+            ></textarea>
+          </div>
+
+          <button
+            id="submit-final"
+            class="btn btn-primary btn-full"
+            type="button"
+          >
+            최종 판결 제출하기
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           학습 완료
+      =================================== -->
+      <section
+        id="complete-screen"
+        class="mission-section"
+        hidden
+      >
+
+        <div class="complete-card">
+
+          <div class="complete-icon">🏅</div>
+
+          <h2>역사 탐정 임무 완료!</h2>
+
+          <p>
+            여러 역사적 증언을 분석하고
+            나만의 역사적 판단을 완성했습니다.
+          </p>
+
+          <div id="judgment-summary">
+            <!-- 첫 판단과 최종 판단 비교 -->
+          </div>
+
+          <div class="complete-message">
+            역사는 과거의 사실을 외우는 것을 넘어,
+            다양한 근거를 비교하고
+            스스로 판단하는 과정입니다.
+          </div>
+
+          <button
+            id="download-record"
+            class="btn btn-secondary btn-full"
+            type="button"
+          >
+            나의 탐구 기록 저장하기
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- ====================================
+         교사용 대시보드
+    ===================================== -->
+    <main id="teacher-screen" class="screen" hidden>
+
+      <div class="teacher-header">
+        <span class="mission-label">
+          TEACHER DASHBOARD
+        </span>
+
+        <h2>역사 탐정단 수업 관리</h2>
+
+        <p>
+          학생들의 탐구 현황을 확인하고
+          수업을 진행하세요.
+        </p>
+      </div>
+
+
+      <!-- 학생 현황 -->
+      <section class="dashboard-section">
+
+        <h3>실시간 학습 현황</h3>
+
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <span class="stat-label">접속 학생</span>
+            <strong id="stat-students">0</strong>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-label">증언 분석 완료</span>
+            <strong id="stat-analysis">0</strong>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-label">교차 검증 완료</span>
+            <strong id="stat-review">0</strong>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-label">최종 판결 완료</span>
+            <strong id="stat-final">0</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- 수업 진행 관리 -->
+      <section class="dashboard-section">
+
+        <h3>수업 진행 관리</h3>
+
+        <div class="content-card">
+
+          <div class="form-group">
+            <label for="teacher-stage">
+              현재 수업 단계
+            </label>
+
+            <select id="teacher-stage">
+              <option value="1">1. 첫 판단</option>
+              <option value="2">2. 증언 분석</option>
+              <option value="3">3. 교차 검증</option>
+              <option value="4">4. 새로운 증거</option>
+              <option value="5">5. 최종 판결</option>
+            </select>
+          </div>
+
+          <button
+            id="change-stage"
+            class="btn btn-secondary"
+            type="button"
+          >
+            수업 단계 변경
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- 비밀 증거 -->
+      <section class="dashboard-section">
+
+        <h3>새로운 증거 공개</h3>
+
+        <div class="content-card">
+
+          <p>
+            학생들의 증거 교차 검증이 끝나면
+            새로운 증거를 공개하세요.
+          </p>
+
+          <button
+            id="reveal-secret"
+            class="btn btn-primary"
+            type="button"
+          >
+            🔓 비밀 증거 공개하기
+          </button>
+
+          <p
+            id="secret-status"
+            class="status-message"
+            role="status"
+          >
+            현재 상태: 비공개
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- 모둠별 증거 -->
+      <section class="dashboard-section">
+
+        <h3>모둠별 증거 수집 현황</h3>
+
+        <div
+          id="teacher-evidence-board"
+          class="evidence-grid"
+        >
+          <!-- 모둠별 증거 표시 -->
+        </div>
+
+      </section>
+
+
+      <!-- 최종 판단 분포 -->
+      <section class="dashboard-section">
+
+        <h3>학생들의 역사적 판단 변화</h3>
+
+        <div class="comparison-grid">
+
+          <div class="content-card">
+            <h4>첫 번째 판단</h4>
+
+            <div id="first-opinion-chart">
+              <!-- 첫 판단 결과 -->
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h4>최종 판단</h4>
+
+            <div id="final-opinion-chart">
+              <!-- 최종 판단 결과 -->
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- 자료 관리 -->
+      <section class="dashboard-section">
+
+        <h3>학습 결과 관리</h3>
+
+        <div class="content-card">
+
+          <p>
+            학생들의 탐구 기록과
+            최종 판단 결과를 확인하고
+            수업 자료로 활용하세요.
+          </p>
+
+          <button
+            id="export-data"
+            class="btn btn-secondary"
+            type="button"
+          >
+            학생 응답 CSV 내보내기
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- ====================================
+         알림 메시지
+    ===================================== -->
+    <div
+      id="toast"
+      class="toast"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></div>
+
+
+    <!-- 하단 푸터 -->
+    <footer class="app-footer">
+      <p>
+        WHY STORY · 생각의 힘을 키우는 역사 수업
+      </p>
+
+      <p>
+        Industrial Revolution History Lab
+      </p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
